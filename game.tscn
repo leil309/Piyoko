@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://cndb4pffpwcp7"]
 
-[ext_resource type="Script" path="res://node_2d.cs" id="1_4avbk"]
-[ext_resource type="Texture2D" uid="uid://bwv4lq4gesr2b" path="res://icon.svg" id="1_bnubm"]
-[ext_resource type="Texture2D" uid="uid://d0wqcor8ikh7d" path="res://grass sample.png" id="1_enfek"]
-[ext_resource type="Script" path="res://Player.cs" id="2_hn5bp"]
+[ext_resource type="Script" path="res://game.cs" id="1_wsgrg"]
+[ext_resource type="Texture2D" uid="uid://d0wqcor8ikh7d" path="res://grass sample.png" id="2_1rdn0"]
+[ext_resource type="Script" path="res://player.cs" id="3_srsma"]
+[ext_resource type="Texture2D" uid="uid://bwv4lq4gesr2b" path="res://icon.svg" id="4_kulem"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dwrmt"]
 resource_name = "grass"
-texture = ExtResource("1_enfek")
+texture = ExtResource("2_1rdn0")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -65,8 +65,8 @@ alpha_curve = SubResource("CurveTexture_77pab")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_peiiw"]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_4avbk")
+[node name="game" type="Node2D"]
+script = ExtResource("1_wsgrg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -78,17 +78,17 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608,
 
 [node name="Player" type="Area2D" parent="CanvasLayer"]
 position = Vector2(117, 89)
-script = ExtResource("2_hn5bp")
+script = ExtResource("3_srsma")
 metadata/_edit_group_ = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/Player"]
 process_material = SubResource("ParticleProcessMaterial_w675m")
-texture = ExtResource("1_bnubm")
+texture = ExtResource("4_kulem")
 trail_lifetime = 0.01
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Player"]
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_bnubm")
+texture = ExtResource("4_kulem")
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/Player"]
 zoom = Vector2(3, 3)

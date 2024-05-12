@@ -1,9 +1,8 @@
 using Godot;
 using System;
 
-public partial class node_2d : Node2D
+public partial class game : Node2D
 {
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 	}
@@ -21,6 +20,11 @@ public partial class node_2d : Node2D
 		else if (Input.IsActionPressed("toggle_fullscreen") && DisplayServer.WindowGetMode() == DisplayServer.WindowMode.Fullscreen)
 		{
 			DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
+		}
+
+		if (Input.IsActionJustPressed("esc"))
+		{
+			GetTree().ChangeSceneToFile("res://menu.tscn");
 		}
 	}
 }
