@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class menu : Control
+public partial class Main : Control
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -18,5 +18,3 @@ public partial class menu : Control
 		GetTree().ChangeSceneToFile("res://game.tscn");
 	}
 }
-
-
