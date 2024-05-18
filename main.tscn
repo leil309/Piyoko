@@ -11,37 +11,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wdxph")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="ButtonLayoutContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -72.0
-offset_top = -51.0
-offset_right = 72.0
+offset_left = -137.0
+offset_top = -70.0
+offset_right = 137.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonLayoutContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="StartButton" type="Button" parent="ButtonLayoutContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "시작"
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="OptionsButton" type="Button" parent="ButtonLayoutContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "옵션"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="QuitButton" type="Button" parent="ButtonLayoutContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "나가기"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="ButtonLayoutContainer/HBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="ButtonLayoutContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="ButtonLayoutContainer/HBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_entered"]
+[connection signal="mouse_entered" from="ButtonLayoutContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="ButtonLayoutContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

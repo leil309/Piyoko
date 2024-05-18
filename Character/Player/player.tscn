@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://cs2pveaqpn24u"]
+
+[ext_resource type="Script" path="res://Character/Player/Player.cs" id="1_jxnff"]
+[ext_resource type="Texture2D" uid="uid://bwv4lq4gesr2b" path="res://Character/Player/icon.svg" id="2_bqtfj"]
+[ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="2_pvtlx"]
+[ext_resource type="Texture2D" uid="uid://cc0375ne45tct" path="res://Character/Player/shadow.png" id="2_sgev8"]
+[ext_resource type="Texture2D" uid="uid://cpdtlp1xxc3fp" path="res://Character/Player/piyoko.png" id="4_i0xwp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_peiiw"]
+size = Vector2(23.3579, 15.7868)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv3fl"]
+atlas = ExtResource("4_i0xwp")
+region = Rect2(0, 0, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6bim"]
+atlas = ExtResource("4_i0xwp")
+region = Rect2(24, 0, 24, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jkwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv3fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6bim")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve" id="Curve_jv7db"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.495845, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_77pab"]
+curve = SubResource("Curve_jv7db")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w675m"]
+lifetime_randomness = 0.09
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+radial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+scale_min = 0.05
+scale_max = 0.1
+alpha_curve = SubResource("CurveTexture_77pab")
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_jxnff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+scale = Vector2(0.95, 0.6)
+shape = SubResource("RectangleShape2D_peiiw")
+
+[node name="Smoothing2D" type="Node2D" parent="."]
+script = ExtResource("2_pvtlx")
+target = NodePath("..")
+
+[node name="Shadow" type="Sprite2D" parent="Smoothing2D"]
+texture = ExtResource("2_sgev8")
+offset = Vector2(0, 7)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Smoothing2D"]
+sprite_frames = SubResource("SpriteFrames_7jkwb")
+animation = &"front"
+autoplay = "front"
+frame_progress = 0.826138
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Smoothing2D"]
+process_material = SubResource("ParticleProcessMaterial_w675m")
+texture = ExtResource("2_bqtfj")

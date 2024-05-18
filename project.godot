@@ -13,21 +13,27 @@ config_version=5
 config/name="Piyoko"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "C#", "Mobile")
-boot_splash/bg_color=Color(0.54099, 0.540991, 0.54099, 1)
-boot_splash/show_image=false
-config/icon="res://icon.svg"
+run/max_fps=240
+config/icon="res://Character/Player/icon.svg"
 
 [autoload]
 
-GlobalScript="*res://GlobalScript.cs"
+GlobalScript="*res://Utils/GlobalScript.cs"
 
 [display]
 
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 
 [dotnet]
 
 project/assembly_name="Piyoko"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/smoothing/plugin.cfg")
 
 [input]
 
