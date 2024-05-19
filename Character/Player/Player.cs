@@ -11,9 +11,12 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public int Friction { get; set; } = 100; //마찰 - 낮을수록 천천히 멈춤
 
+	public AnimationPlayer AnimationPlayer;
+	public AnimationTree AnimationTree;
 	public override void _Ready()
 	{
-		
+		AnimationPlayer = GetNode<AnimationPlayer>("Smoothing2D/AnimationPlayer");
+		AnimationTree = GetNode<AnimationTree>("Smoothing2D/AnimationTree");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -26,6 +29,8 @@ public partial class Player : CharacterBody2D
 
 		if (inputVector != Vector2.Zero)
 		{
+			AnimationTree.Set("parameters/Idle/blend_position", inputVector);
+			AnimationTree.Set("parameters/Run/blend_position", inputVector);
 			Velocity = Velocity.MoveToward(MaxSpeed * inputVector, (Acceleration* (Acceleration/2)) * fDelta);
 		}
 		else
