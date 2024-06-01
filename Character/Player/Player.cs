@@ -14,11 +14,18 @@ public partial class Player : CharacterBody2D
 	private AnimationPlayer _animationPlayer;
 	private AnimationTree _animationTree;
 	private AnimationNodeStateMachinePlayback _stateMachine;
-
+	
+	private PackedScene _arm = GD.Load<PackedScene>("res://arm.tscn");
 	public override void _Ready()
 	{
-		_animationPlayer = GetNode<AnimationPlayer>("Smoothing2D/AnimationPlayer");
-		_animationTree = GetNode<AnimationTree>("Smoothing2D/AnimationTree");
+		var instArm = _arm.Instantiate<Node2D>();
+		var instArm2 = _arm.Instantiate<Node2D>();
+		instArm.Position = new Vector2(-15, -4);
+		AddChild(instArm);
+		instArm2.Position = new Vector2(15, -4);
+		AddChild(instArm2);
+		_animationPlayer = GetNode<AnimationPlayer>("Body/AnimationPlayer");
+		_animationTree = GetNode<AnimationTree>("Body/AnimationTree");
 		_stateMachine = (AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback");
 	}
 
