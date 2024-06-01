@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i3h8ng5fyd1m"
-path="res://.godot/imported/smoothing_2d.png-934d5a92323aa2bc3b59359f95efed56.ctex"
+uid="uid://cs4irn4sddfqa"
+path="res://.godot/imported/grass.png-3c750e999ad86d55da7ad8a28932a1b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/Player/addons/smoothing/smoothing_2d.png"
-dest_files=["res://.godot/imported/smoothing_2d.png-934d5a92323aa2bc3b59359f95efed56.ctex"]
+source_file="res://World/grass.png"
+dest_files=["res://.godot/imported/grass.png-3c750e999ad86d55da7ad8a28932a1b3.ctex"]
 
 [params]
 

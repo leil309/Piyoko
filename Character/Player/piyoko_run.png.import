@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs4irn4sddfqa"
-path="res://.godot/imported/grass.png-822ef38836dc4f655a15911a74d47602.ctex"
+uid="uid://cll3fhcbc368w"
+path="res://.godot/imported/piyoko_run.png-c88568a1c06cbdef53b93f1798ed170d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Maps/grass.png"
-dest_files=["res://.godot/imported/grass.png-822ef38836dc4f655a15911a74d47602.ctex"]
+source_file="res://Character/Player/piyoko_run.png"
+dest_files=["res://.godot/imported/piyoko_run.png-c88568a1c06cbdef53b93f1798ed170d.ctex"]
 
 [params]
 
