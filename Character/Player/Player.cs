@@ -15,7 +15,7 @@ public partial class Player : CharacterBody2D
 	private AnimationTree _animationTree;
 	private AnimationNodeStateMachinePlayback _stateMachine;
 	
-	private PackedScene _arm = GD.Load<PackedScene>("res://arm.tscn");
+	private PackedScene _arm = GD.Load<PackedScene>("res://Character/Player/arm.tscn");
 	public override void _Ready()
 	{
 		var instArm = _arm.Instantiate<Node2D>();
@@ -31,7 +31,16 @@ public partial class Player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		float fDelta = (float)delta;
+		_Movement((float)delta);
+	}
+
+	public override void _Process(double delta)
+	{
+		
+	}
+
+	private void _Movement(float delta)
+	{
 		Vector2 inputVector = Vector2.Zero;
 		inputVector.X = Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left");
 		inputVector.Y = Input.GetActionStrength("move_down") - Input.GetActionStrength("move_up");
@@ -42,18 +51,13 @@ public partial class Player : CharacterBody2D
 			_stateMachine.Travel("Run");
 			_animationTree.Set("parameters/Idle/blend_position", inputVector);
 			_animationTree.Set("parameters/Run/blend_position", inputVector);
-			Velocity = Velocity.MoveToward(MaxSpeed * inputVector, (Acceleration* (Acceleration/2)) * fDelta);
+			Velocity = Velocity.MoveToward(MaxSpeed * inputVector, (Acceleration* (Acceleration/2)) * delta);
 		}
 		else
 		{
 			_stateMachine.Travel("Idle");
-			Velocity = Velocity.MoveToward(Vector2.Zero, (Friction* (Friction/2)) * fDelta);
+			Velocity = Velocity.MoveToward(Vector2.Zero, (Friction* (Friction/2)) * delta);
 		}
 		MoveAndSlide();
-	}
-
-	public override void _Process(double delta)
-	{
-		
 	}
 }

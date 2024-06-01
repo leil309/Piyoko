@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cndb4pffpwcp7"]
+[gd_scene load_steps=13 format=3 uid="uid://cndb4pffpwcp7"]
 
 [ext_resource type="Script" path="res://Scenes/Game.cs" id="1_wsgrg"]
 [ext_resource type="Texture2D" uid="uid://cs4irn4sddfqa" path="res://World/grass.png" id="2_oplp4"]
 [ext_resource type="PackedScene" uid="uid://cs2pveaqpn24u" path="res://Character/Player/player.tscn" id="3_gyugd"]
 [ext_resource type="PackedScene" uid="uid://wdlwgixc8i8s" path="res://World/bush.tscn" id="3_h05u1"]
 [ext_resource type="Script" path="res://Scenes/Camera2D.cs" id="4_x8pq7"]
+[ext_resource type="PackedScene" uid="uid://brruuk87y1fiq" path="res://Character/Mobs/enemy.tscn" id="6_ev4h6"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_2bk6y"]
 tile_data = PackedInt32Array(0, 0, 2, 1, 131072, 2)
@@ -331,12 +332,18 @@ layer_0/tile_data = PackedInt32Array(327688, 65536, 1, 393224, 65536, 2, 458760,
 
 [node name="Bush" parent="." instance=ExtResource("3_h05u1")]
 position = Vector2(256, 40)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Busy2" parent="." instance=ExtResource("3_h05u1")]
 position = Vector2(136, 80)
+collision_priority = 99.0
 
 [node name="Player" parent="." instance=ExtResource("3_gyugd")]
 position = Vector2(56, 16)
+scale = Vector2(1, 0.99375)
+collision_layer = 4
+MaxSpeed = 50
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -344,3 +351,18 @@ position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 script = ExtResource("4_x8pq7")
 _targetPath = NodePath("../Player")
+
+[node name="enemy_slime" parent="." instance=ExtResource("6_ev4h6")]
+position = Vector2(200, 104)
+collision_layer = 2
+collision_priority = 2.0
+
+[node name="enemy_slime2" parent="." instance=ExtResource("6_ev4h6")]
+position = Vector2(248, 104)
+collision_layer = 2
+collision_priority = 2.0
+
+[node name="enemy_slime3" parent="." instance=ExtResource("6_ev4h6")]
+position = Vector2(216, 128)
+collision_layer = 2
+collision_priority = 2.0

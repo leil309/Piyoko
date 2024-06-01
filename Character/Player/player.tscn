@@ -446,7 +446,7 @@ graph_offset = Vector2(-162, -30)
 radius = 4.0
 height = 22.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_jxnff")
 

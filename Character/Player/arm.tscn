@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhj0cyartqx66"]
 
-[ext_resource type="Script" path="res://arm.cs" id="1_ftwed"]
+[ext_resource type="Script" path="res://Character/Player/arm.cs" id="1_ftwed"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="1_mng3t"]
 [ext_resource type="Texture2D" uid="uid://odyq3u6yumrm" path="res://Character/Player/weapon.png" id="2_rt5r1"]
 [ext_resource type="Texture2D" uid="uid://b2ssu4noebxb1" path="res://Character/Player/arm.png" id="3_yt4wk"]
