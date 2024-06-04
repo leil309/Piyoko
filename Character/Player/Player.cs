@@ -5,7 +5,7 @@ public partial class Player : CharacterBody2D
 {
 	[ExportCategory("Movement")]
 	[Export]
-	public int MaxSpeed { get; set; } = 75; //최대 속도
+	public int MaxSpeed { get; set; } = 150; //최대 속도
 	[Export]
 	public int Acceleration = 100; //가속 - 낮을수록 최대속도에 도달하기까지 오래걸림
 	[Export]
