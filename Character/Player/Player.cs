@@ -5,7 +5,7 @@ public partial class Player : CharacterBody2D
 {
 	[ExportCategory("Movement")]
 	[Export]
-	public int MaxSpeed { get; set; } = 150; //최대 속도
+	public int MaxSpeed { get; set; } = 125; //최대 속도
 	[Export]
 	public int Acceleration = 100; //가속 - 낮을수록 최대속도에 도달하기까지 오래걸림
 	[Export]
@@ -51,12 +51,12 @@ public partial class Player : CharacterBody2D
 			_stateMachine.Travel("Run");
 			_animationTree.Set("parameters/Idle/blend_position", inputVector);
 			_animationTree.Set("parameters/Run/blend_position", inputVector);
-			Velocity = Velocity.MoveToward(MaxSpeed * inputVector, (Acceleration* (Acceleration/2)) * delta);
+			Velocity = Velocity.MoveToward(MaxSpeed * inputVector, Acceleration * (Acceleration/2f) * delta);
 		}
 		else
 		{
 			_stateMachine.Travel("Idle");
-			Velocity = Velocity.MoveToward(Vector2.Zero, (Friction* (Friction/2)) * delta);
+			Velocity = Velocity.MoveToward(Vector2.Zero, Friction * (Friction/2f) * delta);
 		}
 		MoveAndSlide();
 	}
