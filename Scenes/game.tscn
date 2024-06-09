@@ -707,3 +707,28 @@ _targetPath = NodePath("../Player")
 [node name="enemy_slime" parent="." instance=ExtResource("6_ev4h6")]
 position = Vector2(0, 168)
 collision_priority = 2.0
+
+[node name="enemy_slime2" parent="." instance=ExtResource("6_ev4h6")]
+position = Vector2(32, 168)
+collision_priority = 2.0
+
+[node name="enemy_slime3" parent="." instance=ExtResource("6_ev4h6")]
+position = Vector2(64, 168)
+collision_priority = 2.0
+
+[node name="enemy_slime4" parent="." instance=ExtResource("6_ev4h6")]
+position = Vector2(96, 168)
+collision_priority = 2.0
+
+[node name="enemy_slime5" parent="." instance=ExtResource("6_ev4h6")]
+position = Vector2(128, 168)
+collision_priority = 2.0
+
+[node name="enemy_slime6" parent="." instance=ExtResource("6_ev4h6")]
+position = Vector2(160, 168)
+collision_priority = 2.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-24, -24, 312, -24, 312, 184, -24, 184, -24, -16, -16, -16, -16, 176, 304, 176, 304, -16, -16, -16, -24, -16)

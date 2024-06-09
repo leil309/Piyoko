@@ -444,7 +444,7 @@ graph_offset = Vector2(-162, -30)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dr81n"]
 radius = 4.0
-height = 22.0
+height = 18.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1

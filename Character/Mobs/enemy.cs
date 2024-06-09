@@ -7,9 +7,9 @@ public partial class enemy : CharacterBody2D
 	[Export]
 	public int MaxSpeed { get; set; } = 75; //최대 속도
 	[Export]
-	public int Acceleration = 10; //가속 - 낮을수록 최대속도에 도달하기까지 오래걸림
+	public int Acceleration = 100; //가속 - 낮을수록 최대속도에 도달하기까지 오래걸림
 	[Export]
-	public int Friction { get; set; } = 10; //마찰 - 낮을수록 천천히 멈춤
+	public int Friction { get; set; } = 100; //마찰 - 낮을수록 천천히 멈춤
 
 	private Vector2 _avoidVelocity;
 	private Vector2 _velocity = Vector2.Zero;
@@ -21,6 +21,7 @@ public partial class enemy : CharacterBody2D
 	{
 		_target = GetTree().GetFirstNodeInGroup("player") as CharacterBody2D;
 		_navigationAgent2D = GetNode<NavigationAgent2D>("NavigationAgent2D");
+		_navigationAgent2D.MaxSpeed = MaxSpeed;
 	}
 
 	public override void _PhysicsProcess(double delta)
