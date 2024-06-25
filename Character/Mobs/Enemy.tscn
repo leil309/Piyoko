@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://brruuk87y1fiq"]
 
 [ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="1_1oqn4"]
-[ext_resource type="Script" path="res://Character/Mobs/enemy.cs" id="1_e5v3t"]
-[ext_resource type="Texture2D" uid="uid://dn331yoq0hsb4" path="res://Character/Mobs/slime.png" id="2_800yn"]
+[ext_resource type="Script" path="res://Character/Mobs/Enemy.gd" id="1_wkas5"]
+[ext_resource type="Texture2D" uid="uid://dn331yoq0hsb4" path="res://Sprites/slime.png" id="2_800yn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l0rqy"]
 radius = 4.0
@@ -15,7 +15,7 @@ motion_mode = 1
 wall_min_slide_angle = 3.14159
 platform_floor_layers = 4294967294
 platform_wall_layers = 1
-script = ExtResource("1_e5v3t")
+script = ExtResource("1_wkas5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
@@ -44,6 +44,8 @@ shape = SubResource("CapsuleShape2D_l0rqy")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="StateMachine" type="Node" parent="."]
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

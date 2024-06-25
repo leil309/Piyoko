@@ -16,7 +16,7 @@ public partial class Main : Control
 	
 	private void _on_start_button_pressed()
 	{
-		GetTree().ChangeSceneToFile("res://Scenes/game.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/Game.tscn");
 	}
 	
 	private void _on_quit_button_pressed()

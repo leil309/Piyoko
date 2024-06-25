@@ -1,9 +1,9 @@
 [gd_scene load_steps=49 format=3 uid="uid://cs2pveaqpn24u"]
 
-[ext_resource type="Script" path="res://Character/Player/Player.cs" id="1_jxnff"]
+[ext_resource type="Script" path="res://Character/Player/Player.gd" id="1_hdbtt"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="2_pvtlx"]
-[ext_resource type="Texture2D" uid="uid://cc0375ne45tct" path="res://Character/Player/shadow.png" id="2_sgev8"]
-[ext_resource type="Texture2D" uid="uid://cpdtlp1xxc3fp" path="res://Character/Player/piyoko.png" id="4_i0xwp"]
+[ext_resource type="Texture2D" uid="uid://cc0375ne45tct" path="res://Sprites/shadow.png" id="2_sgev8"]
+[ext_resource type="Texture2D" uid="uid://cpdtlp1xxc3fp" path="res://Sprites/piyoko.png" id="4_i0xwp"]
 
 [sub_resource type="Animation" id="Animation_q37jy"]
 resource_name = "IdleRight"
@@ -448,7 +448,7 @@ height = 18.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
-script = ExtResource("1_jxnff")
+script = ExtResource("1_hdbtt")
 
 [node name="Body" type="Node2D" parent="."]
 script = ExtResource("2_pvtlx")

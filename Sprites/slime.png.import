@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cll3fhcbc368w"
-path="res://.godot/imported/piyoko_run.png-c88568a1c06cbdef53b93f1798ed170d.ctex"
+uid="uid://dn331yoq0hsb4"
+path="res://.godot/imported/slime.png-7eb4797c6d79a513d211956731c51113.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/Player/piyoko_run.png"
-dest_files=["res://.godot/imported/piyoko_run.png-c88568a1c06cbdef53b93f1798ed170d.ctex"]
+source_file="res://Sprites/slime.png"
+dest_files=["res://.godot/imported/slime.png-7eb4797c6d79a513d211956731c51113.ctex"]
 
 [params]
 

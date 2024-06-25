@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhj0cyartqx66"]
 
-[ext_resource type="Script" path="res://Character/Player/arm.cs" id="1_ftwed"]
-[ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="1_mng3t"]
-[ext_resource type="Texture2D" uid="uid://odyq3u6yumrm" path="res://Character/Player/weapon.png" id="2_rt5r1"]
-[ext_resource type="Texture2D" uid="uid://b2ssu4noebxb1" path="res://Character/Player/arm.png" id="3_yt4wk"]
+[ext_resource type="Script" path="res://Character/Player/Arm.gd" id="1_dsxqk"]
+[ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="2_m4uqy"]
+[ext_resource type="Texture2D" uid="uid://odyq3u6yumrm" path="res://Sprites/weapon.png" id="3_jeeif"]
+[ext_resource type="Texture2D" uid="uid://b2ssu4noebxb1" path="res://Sprites/arm.png" id="4_rueg7"]
 
 [node name="Arm" type="Node2D"]
-script = ExtResource("1_ftwed")
+script = ExtResource("1_dsxqk")
 
 [node name="Arm" type="Node2D" parent="."]
-script = ExtResource("1_mng3t")
+script = ExtResource("2_m4uqy")
 
 [node name="Sword" type="Sprite2D" parent="Arm"]
 position = Vector2(0, -8)
-texture = ExtResource("2_rt5r1")
+texture = ExtResource("3_jeeif")
 
 [node name="Sprite2D" type="Sprite2D" parent="Arm"]
-texture = ExtResource("3_yt4wk")
+texture = ExtResource("4_rueg7")
