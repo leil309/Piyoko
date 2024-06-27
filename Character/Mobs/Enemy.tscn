@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://brruuk87y1fiq"]
+[gd_scene load_steps=8 format=3 uid="uid://brruuk87y1fiq"]
 
 [ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="1_1oqn4"]
 [ext_resource type="Script" path="res://Character/Mobs/Enemy.gd" id="1_wkas5"]
 [ext_resource type="Texture2D" uid="uid://dn331yoq0hsb4" path="res://Sprites/slime.png" id="2_800yn"]
+[ext_resource type="Script" path="res://Character/Mobs/HealthComponent.gd" id="4_144hs"]
+[ext_resource type="Script" path="res://Character/Mobs/HitboxComponent.gd" id="5_ofnrt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l0rqy"]
 radius = 4.0
 height = 16.0
 
-[node name="enemy_slime" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vd78h"]
+radius = 8.0
+height = 22.0
+
+[node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
@@ -45,7 +51,18 @@ shape = SubResource("CapsuleShape2D_l0rqy")
 wait_time = 0.1
 autostart = true
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("4_144hs")
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("5_ofnrt")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vd78h")
+debug_color = Color(0.992157, 0, 0.227451, 0.27451)
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

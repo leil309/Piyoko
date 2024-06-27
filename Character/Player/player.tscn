@@ -1,9 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://cs2pveaqpn24u"]
+[gd_scene load_steps=51 format=3 uid="uid://cs2pveaqpn24u"]
 
 [ext_resource type="Script" path="res://Character/Player/Player.gd" id="1_hdbtt"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="2_pvtlx"]
 [ext_resource type="Texture2D" uid="uid://cc0375ne45tct" path="res://Sprites/shadow.png" id="2_sgev8"]
 [ext_resource type="Texture2D" uid="uid://cpdtlp1xxc3fp" path="res://Sprites/piyoko.png" id="4_i0xwp"]
+[ext_resource type="Script" path="res://Character/Player/AttackAreaTest.gd" id="5_5i6ts"]
 
 [sub_resource type="Animation" id="Animation_q37jy"]
 resource_name = "IdleRight"
@@ -446,6 +447,9 @@ graph_offset = Vector2(-162, -30)
 radius = 4.0
 height = 18.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ey6kn"]
+radius = 32.0156
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_hdbtt")
@@ -481,3 +485,11 @@ vframes = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_dr81n")
+
+[node name="AttackAreaTest" type="Area2D" parent="."]
+script = ExtResource("5_5i6ts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackAreaTest"]
+shape = SubResource("CircleShape2D_ey6kn")
+
+[connection signal="area_entered" from="AttackAreaTest" to="AttackAreaTest" method="_on_area_entered"]
