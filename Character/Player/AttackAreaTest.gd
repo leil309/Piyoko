@@ -1,6 +1,6 @@
 extends Area2D
 
-var attack_damage = 10.5
+var attack_damage = 2
 var knockback_force = 100.0
 
 func _on_hitbox_area_entered(area):
@@ -24,5 +24,7 @@ func _process(delta):
 func _physics_process(delta):
 	pass
 
-func _on_area_entered(area):
-	_on_hitbox_area_entered(area)
+func _on_timer_timeout():
+	var areas = get_overlapping_areas()
+	for x in areas:
+		_on_hitbox_area_entered(x)

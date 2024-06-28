@@ -448,7 +448,7 @@ radius = 4.0
 height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ey6kn"]
-radius = 32.0156
+radius = 62.0322
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
@@ -492,4 +492,9 @@ script = ExtResource("5_5i6ts")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackAreaTest"]
 shape = SubResource("CircleShape2D_ey6kn")
 
+[node name="Timer" type="Timer" parent="AttackAreaTest"]
+wait_time = 0.25
+autostart = true
+
 [connection signal="area_entered" from="AttackAreaTest" to="AttackAreaTest" method="_on_area_entered"]
+[connection signal="timeout" from="AttackAreaTest/Timer" to="AttackAreaTest" method="_on_timer_timeout"]

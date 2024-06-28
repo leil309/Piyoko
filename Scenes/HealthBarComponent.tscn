@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://p0ft37vnmn23"]
+
+[ext_resource type="StyleBox" uid="uid://6qcxxgumcp2i" path="res://Theme/HealthBarBackgroundTheme.tres" id="1_wnkle"]
+[ext_resource type="StyleBox" uid="uid://l33ds6w36rw1" path="res://Theme/HealthBarFillTheme.tres" id="2_bqam2"]
+[ext_resource type="Script" path="res://Character/Mobs/HealthBarComponent.gd" id="3_yygd3"]
+
+[node name="HealthBarComponent" type="ProgressBar" node_paths=PackedStringArray("health_component")]
+offset_left = -11.0
+offset_top = 6.0
+offset_right = 11.0
+offset_bottom = 8.0
+theme_override_styles/background = ExtResource("1_wnkle")
+theme_override_styles/fill = ExtResource("2_bqam2")
+value = 50.0
+show_percentage = false
+script = ExtResource("3_yygd3")
+health_component = NodePath("")

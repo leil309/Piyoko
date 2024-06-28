@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://brruuk87y1fiq"]
+[gd_scene load_steps=9 format=3 uid="uid://brruuk87y1fiq"]
 
 [ext_resource type="Script" path="res://addons/smoothing/smoothing_2d.gd" id="1_1oqn4"]
 [ext_resource type="Script" path="res://Character/Mobs/Enemy.gd" id="1_wkas5"]
 [ext_resource type="Texture2D" uid="uid://dn331yoq0hsb4" path="res://Sprites/slime.png" id="2_800yn"]
-[ext_resource type="Script" path="res://Character/Mobs/HealthComponent.gd" id="4_144hs"]
-[ext_resource type="Script" path="res://Character/Mobs/HitboxComponent.gd" id="5_ofnrt"]
+[ext_resource type="PackedScene" uid="uid://p0ft37vnmn23" path="res://Scenes/HealthBarComponent.tscn" id="3_6cie4"]
+[ext_resource type="PackedScene" uid="uid://c1ujdopocffbn" path="res://Scenes/HealthComponent.tscn" id="5_nwlvp"]
+[ext_resource type="PackedScene" uid="uid://bl0uh30mbp5e" path="res://Scenes/HitboxComponent.tscn" id="6_itdhp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l0rqy"]
 radius = 4.0
@@ -37,6 +38,9 @@ avoidance_mask = 3
 [node name="Smoothing2D" type="Node2D" parent="."]
 script = ExtResource("1_1oqn4")
 
+[node name="HealthBarComponent" parent="Smoothing2D" node_paths=PackedStringArray("health_component") instance=ExtResource("3_6cie4")]
+health_component = NodePath("../../HealthComponent")
+
 [node name="Sprite2D" type="Sprite2D" parent="Smoothing2D"]
 position = Vector2(0, -8)
 texture = ExtResource("2_800yn")
@@ -51,11 +55,9 @@ shape = SubResource("CapsuleShape2D_l0rqy")
 wait_time = 0.1
 autostart = true
 
-[node name="HealthComponent" type="Node2D" parent="."]
-script = ExtResource("4_144hs")
+[node name="HealthComponent" parent="." instance=ExtResource("5_nwlvp")]
 
-[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
-script = ExtResource("5_ofnrt")
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_itdhp")]
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
